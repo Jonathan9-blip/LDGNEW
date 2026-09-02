@@ -444,4 +444,47 @@ Comentario: ${comentario}`;
         "_blank"
     );
 
+
+    // =========================================================
+// HEADER COMPACTO AL HACER SCROLL
+// =========================================================
+
+const headerPrincipal = document.querySelector(".header");
+
+
+function actualizarHeader() {
+
+    if (!headerPrincipal) {
+        return;
+    }
+
+
+    if (window.scrollY > 80) {
+
+        headerPrincipal.classList.add(
+            "header-scroll"
+        );
+
+    } else {
+
+        headerPrincipal.classList.remove(
+            "header-scroll"
+        );
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    actualizarHeader,
+    {
+        passive: true
+    }
+);
+
+
+actualizarHeader();
+
 });

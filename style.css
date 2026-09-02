@@ -48,6 +48,60 @@ textarea {
 
 
 /* =========================================================
+   HEADER AL HACER SCROLL
+========================================================= */
+
+.header {
+    transition:
+        min-height 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        padding 0.3s ease;
+}
+
+
+.header.header-scroll {
+    min-height: 70px;
+
+    background: rgba(5, 5, 5, 0.97);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+.logo {
+    transition:
+        font-size 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+
+.header.header-scroll .logo {
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.btn-reservar {
+    transition:
+        min-height 0.3s ease,
+        padding 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.header.header-scroll .btn-reservar {
+    min-height: 42px;
+
+    padding-left: 19px;
+    padding-right: 19px;
+}
+
+/* =========================================================
    HEADER
 ========================================================= */
 
@@ -1803,6 +1857,126 @@ body.modal-abierto {
 
 
 /* =========================================================
+   ANIMACIÓN DE ENTRADA - PORTADA
+========================================================= */
+
+.hero {
+    overflow: hidden;
+}
+
+
+/* Texto pequeño */
+
+.hero-subtitle {
+    opacity: 0;
+
+    animation:
+        heroSubtitulo 0.8s ease forwards;
+
+    animation-delay: 0.15s;
+}
+
+
+/* Título */
+
+.hero h1 {
+    opacity: 0;
+
+    animation:
+        heroTitulo 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+    animation-delay: 0.3s;
+}
+
+
+/* Texto */
+
+.hero-text {
+    opacity: 0;
+
+    animation:
+        heroTexto 0.8s ease forwards;
+
+    animation-delay: 0.55s;
+}
+
+
+/* Botón */
+
+.hero-button {
+    opacity: 0;
+
+    animation:
+        heroBoton 0.8s ease forwards;
+
+    animation-delay: 0.7s;
+}
+
+
+/* =========================
+   KEYFRAMES
+========================= */
+
+@keyframes heroSubtitulo {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes heroTitulo {
+
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes heroTexto {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes heroBoton {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -1834,6 +2008,36 @@ body.modal-abierto {
         scroll-padding-top: 78px;
     }
 
+
+
+    /* -------------------------
+   HEADER COMPACTO MÓVIL
+------------------------- */
+
+.header.header-scroll {
+    min-height: calc(
+        60px + env(safe-area-inset-top)
+    );
+
+    background: rgba(5, 5, 5, 0.98);
+}
+
+
+.header.header-scroll .logo {
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.header.header-scroll .btn-reservar {
+    min-height: 37px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 8px;
+}
 
     /* -------------------------
        HEADER MÓVIL

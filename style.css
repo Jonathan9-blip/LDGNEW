@@ -380,35 +380,142 @@ section h2 {
 .nosotros {
     width: 100%;
 
-    min-height: 620px;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: #0b0b0b;
+
+    overflow: hidden;
+}
+
+
+/* FOTO */
+
+.nosotros-imagen {
+    position: relative;
+
+    min-height: 700px;
+
+    overflow: hidden;
+}
+
+.nosotros-imagen::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.35)
+        );
+}
+
+.nosotros-imagen img {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition: transform 0.8s ease;
+}
+
+.nosotros-imagen:hover img {
+    transform: scale(1.03);
+}
+
+
+/* CONTENIDO */
+
+.nosotros-contenido {
+    min-height: 700px;
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
+
     justify-content: center;
 
-    padding: 120px 8%;
-
-    background: #0b0b0b;
+    padding: 90px 10%;
 }
 
-.section-content {
-    width: 100%;
-    max-width: 900px;
-
-    text-align: center;
+.nosotros-contenido h2 {
+    margin-bottom: 35px;
 }
 
-.section-content p:last-child {
-    max-width: 720px;
+.nosotros-contenido h2 span {
+    color: #d89543;
+}
 
-    margin: 0 auto;
+.nosotros-texto {
+    max-width: 560px;
 
-    color: #aaaaaa;
+    color: #a9a9a9;
 
-    font-size: 18px;
+    font-size: 17px;
 
     line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+
+/* HORARIO PEQUEÑO */
+
+.nosotros-detalle {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-top: 35px;
+}
+
+.nosotros-detalle div:not(.linea) {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.nosotros-detalle strong {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+}
+
+.nosotros-detalle span {
+    color: #777777;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.nosotros-detalle .linea {
+    width: 1px;
+
+    height: 48px;
+
+    background: #d89543;
 }
 
 
@@ -891,22 +998,60 @@ footer p {
 
 
     /* -------------------------
-       NOSOTROS
-    ------------------------- */
+   NOSOTROS MÓVIL
+------------------------- */
 
-    .nosotros {
-        min-height: auto;
+.nosotros {
+    grid-template-columns: 1fr;
+}
 
-        padding: 90px 22px;
-    }
+.nosotros-imagen {
+    min-height: 420px;
 
-    .section-content p:last-child {
-        max-width: 500px;
+    order: 1;
+}
 
-        font-size: 15px;
+.nosotros-imagen img {
+    object-position: center;
+}
 
-        line-height: 1.85;
-    }
+.nosotros-contenido {
+    min-height: auto;
+
+    order: 2;
+
+    padding: 75px 22px 90px;
+}
+
+.nosotros-contenido h2 {
+    font-size: clamp(43px, 13vw, 60px);
+
+    margin-bottom: 28px;
+}
+
+.nosotros-texto {
+    max-width: 100%;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.nosotros-detalle {
+    gap: 22px;
+
+    margin-top: 30px;
+}
+
+.nosotros-detalle strong {
+    font-size: 22px;
+}
+
+.nosotros-detalle .linea {
+    height: 42px;
+}
 
 
     /* -------------------------

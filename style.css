@@ -1433,6 +1433,318 @@ footer p {
     line-height: 1.9;
 }
 
+
+/* =========================================================
+   MODAL RESERVACIÓN
+========================================================= */
+
+.modal-reserva {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+.modal-reserva.activo {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* FONDO */
+
+.modal-reserva-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* CAJA */
+
+.modal-reserva-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 620px;
+
+    max-height: 90vh;
+    max-height: 90svh;
+
+    overflow-y: auto;
+
+    padding: 60px;
+
+    background: #111111;
+
+    border: 1px solid rgba(216, 149, 67, 0.35);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6);
+
+    transform: translateY(30px) scale(0.97);
+
+    transition: transform 0.35s ease;
+}
+
+
+.modal-reserva.activo .modal-reserva-contenido {
+    transform: translateY(0) scale(1);
+}
+
+
+/* IMPEDIR SCROLL DE FONDO */
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+
+/* BOTÓN CERRAR */
+
+.cerrar-reserva {
+    position: absolute;
+
+    top: 20px;
+    right: 22px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 33px;
+
+    font-weight: 200;
+
+    line-height: 1;
+}
+
+
+/* CABECERA */
+
+.reserva-encabezado {
+    margin-bottom: 45px;
+}
+
+
+.reserva-encabezado h2 {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 60px;
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+}
+
+
+.reserva-encabezado h2 span {
+    color: #d89543;
+}
+
+
+.reserva-encabezado > p:last-child {
+    max-width: 470px;
+
+    color: #999999;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* FORMULARIO */
+
+#formReserva {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 23px;
+}
+
+
+.campo-reserva {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.campo-reserva label {
+    color: #bbbbbb;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.campo-reserva label span {
+    color: #666666;
+
+    font-weight: 500;
+}
+
+
+/* INPUTS */
+
+.campo-reserva input,
+.campo-reserva select,
+.campo-reserva textarea {
+    width: 100%;
+
+    min-height: 55px;
+
+    border: 1px solid #333333;
+
+    outline: none;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    padding: 0 16px;
+
+    border-radius: 0;
+
+    font-size: 16px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.campo-reserva textarea {
+    min-height: 100px;
+
+    resize: vertical;
+
+    padding-top: 16px;
+
+    line-height: 1.5;
+}
+
+
+.campo-reserva input:focus,
+.campo-reserva select:focus,
+.campo-reserva textarea:focus {
+    border-color: #d89543;
+
+    background: #0c0c0c;
+}
+
+
+/* FECHA + HORA */
+
+.reserva-doble {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* BOTÓN WHATSAPP */
+
+.enviar-whatsapp {
+    width: 100%;
+
+    min-height: 62px;
+
+    margin-top: 10px;
+
+    border: 0;
+
+    background: #d89543;
+
+    color: #080808;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.enviar-whatsapp:hover {
+    background: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+.aviso-reserva {
+    color: #666666;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
 /* =========================================================
    TABLET
 ========================================================= */
@@ -1500,6 +1812,93 @@ footer p {
 
         letter-spacing: 1px;
     }
+
+
+    /* -------------------------
+   RESERVACIÓN MÓVIL
+------------------------- */
+
+.modal-reserva {
+    align-items: flex-end;
+
+    padding: 0;
+}
+
+
+.modal-reserva-contenido {
+    width: 100%;
+
+    max-width: none;
+
+    max-height: 92vh;
+    max-height: 92svh;
+
+    padding:
+        55px
+        22px
+        calc(35px + env(safe-area-inset-bottom));
+
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+
+    transform: translateY(100%);
+}
+
+
+.modal-reserva.activo .modal-reserva-contenido {
+    transform: translateY(0);
+}
+
+
+.cerrar-reserva {
+    top: 12px;
+
+    right: 14px;
+}
+
+
+.reserva-encabezado {
+    margin-bottom: 35px;
+}
+
+
+.reserva-encabezado h2 {
+    font-size: clamp(44px, 13vw, 57px);
+
+    margin-bottom: 20px;
+}
+
+
+.reserva-encabezado > p:last-child {
+    font-size: 14px;
+}
+
+
+#formReserva {
+    gap: 20px;
+}
+
+
+.reserva-doble {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.campo-reserva input,
+.campo-reserva select {
+    min-height: 54px;
+
+    font-size: 16px;
+}
+
+
+.enviar-whatsapp {
+    min-height: 58px;
+}
+
 
     /* -------------------------
    PÁGINA MENÚ MÓVIL

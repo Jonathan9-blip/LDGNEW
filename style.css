@@ -141,6 +141,14 @@ textarea {
     width: 100%;
 }
 
+.navbar a.active {
+    color: #d89543;
+}
+
+.navbar a.active::after {
+    width: 100%;
+}
+
 
 /* =========================================================
    BOTÓN HEADER
@@ -582,6 +590,205 @@ section h2 {
 
 
 /* =========================================================
+   EXPERIENCIA / FOTOS INICIO
+========================================================= */
+
+.experiencia {
+    width: 100%;
+
+    padding: 130px 6%;
+
+    background: #0b0b0b;
+
+    overflow: hidden;
+}
+
+
+/* INTRO */
+
+.experiencia-intro {
+    max-width: 850px;
+
+    margin: 0 auto 120px;
+
+    text-align: center;
+}
+
+.experiencia-intro h2 span {
+    color: #d89543;
+}
+
+.experiencia-intro > p:last-child {
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #999999;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* CADA BLOQUE */
+
+.experiencia-item {
+    width: 100%;
+    max-width: 1350px;
+
+    margin: 0 auto 150px;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+/* ALTERNA FOTO Y TEXTO */
+
+.experiencia-invertido {
+    grid-template-columns: 0.7fr 1.3fr;
+}
+
+.experiencia-invertido .experiencia-foto {
+    order: 2;
+}
+
+.experiencia-invertido .experiencia-texto {
+    order: 1;
+}
+
+
+/* FOTOS */
+
+.experiencia-foto {
+    width: 100%;
+
+    height: 620px;
+
+    overflow: hidden;
+}
+
+.experiencia-foto img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 1.2s ease;
+}
+
+.experiencia-foto:hover img {
+    transform: scale(1.03);
+}
+
+
+/* TEXTO */
+
+.experiencia-texto {
+    max-width: 430px;
+}
+
+.experiencia-texto > span {
+    display: block;
+
+    color: #d89543;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.experiencia-texto h3 {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 4vw, 58px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+}
+
+.experiencia-texto p {
+    color: #999999;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-left {
+    opacity: 0;
+
+    transform: translateX(-55px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-right {
+    opacity: 0;
+
+    transform: translateX(55px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-zoom {
+    opacity: 0;
+
+    transform: scale(0.94);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* CUANDO ENTRAN A PANTALLA */
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-zoom.visible {
+    opacity: 1;
+
+    transform: translate(0, 0) scale(1);
+}
+
+/* =========================================================
    HORARIO
 ========================================================= */
 
@@ -889,6 +1096,91 @@ footer p {
         letter-spacing: 1px;
     }
 
+    /* -------------------------
+   EXPERIENCIA MÓVIL
+------------------------- */
+
+.experiencia {
+    padding: 95px 16px;
+}
+
+.experiencia-intro {
+    margin-bottom: 75px;
+
+    padding: 0 6px;
+}
+
+.experiencia-intro > p:last-child {
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+.experiencia-item,
+.experiencia-invertido {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    margin-bottom: 100px;
+}
+
+
+/* En teléfono siempre va:
+   FOTO
+   TEXTO
+*/
+
+.experiencia-invertido .experiencia-foto,
+.experiencia-foto {
+    order: 1;
+}
+
+.experiencia-invertido .experiencia-texto,
+.experiencia-texto {
+    order: 2;
+}
+
+.experiencia-foto {
+    height: 430px;
+}
+
+.experiencia-texto {
+    max-width: 100%;
+
+    padding: 0 7px;
+}
+
+.experiencia-texto > span {
+    margin-bottom: 18px;
+}
+
+.experiencia-texto h3 {
+    font-size: clamp(37px, 11vw, 50px);
+
+    margin-bottom: 22px;
+}
+
+.experiencia-texto p {
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* Animaciones más cortas en celular */
+
+.reveal {
+    transform: translateY(30px);
+}
+
+.reveal-left {
+    transform: translateX(-30px);
+}
+
+.reveal-right {
+    transform: translateX(30px);
+}
 
     /* -------------------------
        HERO MÓVIL
@@ -1177,6 +1469,83 @@ footer p {
 
 }
 
+
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Entrada desde izquierda */
+
+.reveal-left {
+    opacity: 0;
+
+    transform: translateX(-60px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-left.visible {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* Entrada desde derecha */
+
+.reveal-right {
+    opacity: 0;
+
+    transform: translateX(60px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-right.visible {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* Aparición con zoom suave */
+
+.reveal-zoom {
+    opacity: 0;
+
+    transform: scale(0.92);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal-zoom.visible {
+    opacity: 1;
+
+    transform: scale(1);
+}
 
 /* =========================================================
    CELULARES PEQUEÑOS

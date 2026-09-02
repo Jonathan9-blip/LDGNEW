@@ -1,0 +1,1112 @@
+/* =========================================================
+   LOS DOS GALLOS
+   STYLE.CSS
+   Diseño responsive: iPhone, Android, tablet y computadora
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+
+    background: #0b0b0b;
+    color: #f5f0e8;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    width: 100%;
+
+    min-height: 90px;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 6%;
+    padding-right: 6%;
+
+    background: rgba(5, 5, 5, 0.88);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    gap: 38px;
+}
+
+.navbar a {
+    position: relative;
+
+    color: #e7e7e7;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 1px;
+
+    bottom: -8px;
+    left: 0;
+
+    background: #d89543;
+
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #d89543;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTÓN HEADER
+========================================================= */
+
+.btn-reservar {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 24px;
+
+    border: 1px solid #d89543;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background: #d89543;
+
+    color: #080808;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO / PORTADA
+========================================================= */
+
+.hero {
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        150px
+        8%
+        90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.96) 0%,
+            rgba(0, 0, 0, 0.86) 38%,
+            rgba(0, 0, 0, 0.58) 68%,
+            rgba(0, 0, 0, 0.32) 100%
+        ),
+        url("img/portada.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+/* Oscurecimiento inferior */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 220px;
+
+    background:
+        linear-gradient(
+            transparent,
+            #0b0b0b
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 820px;
+}
+
+.hero-subtitle {
+    color: #d89543;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    line-height: 1.5;
+
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(72px, 10vw, 145px);
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 38px;
+}
+
+.hero h1 span {
+    color: #d89543;
+}
+
+.hero-text {
+    max-width: 600px;
+
+    color: #d0d0d0;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 38px;
+}
+
+
+/* =========================================================
+   BOTÓN HERO
+========================================================= */
+
+.hero-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    padding: 0 36px;
+
+    background: #d89543;
+
+    color: #080808;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.hero-button:hover {
+    background: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   TÍTULOS GENERALES
+========================================================= */
+
+.section-label {
+    color: #d89543;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   SOBRE NOSOTROS
+========================================================= */
+
+.nosotros {
+    width: 100%;
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 8%;
+
+    background: #0b0b0b;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 900px;
+
+    text-align: center;
+}
+
+.section-content p:last-child {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: #aaaaaa;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.galeria {
+    width: 100%;
+
+    padding: 120px 6%;
+
+    background: #111111;
+
+    text-align: center;
+}
+
+.galeria-grid {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 60px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.foto {
+    width: 100%;
+
+    min-height: 430px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.7)
+        ),
+        #242424;
+
+    color: #8c8c8c;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.foto:hover {
+    transform: scale(0.99);
+}
+
+
+/* =========================================================
+   HORARIO
+========================================================= */
+
+.horario {
+    width: 100%;
+
+    padding: 150px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.92)
+        ),
+        #161616;
+}
+
+.horario-grande {
+    color: #d89543;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(32px, 5vw, 60px);
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   UBICACIÓN
+========================================================= */
+
+.ubicacion {
+    width: 100%;
+
+    min-height: 550px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 110px 8%;
+
+    text-align: center;
+
+    background: #0c0c0c;
+}
+
+.ubicacion > p:not(.section-label) {
+    color: #aaaaaa;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+.btn-mapa {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 0 32px;
+
+    border: 1px solid #d89543;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn-mapa:hover {
+    background: #d89543;
+
+    color: #000000;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESERVACIÓN
+========================================================= */
+
+.reserva {
+    width: 100%;
+
+    min-height: 560px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 110px 8%;
+
+    text-align: center;
+
+    background: #151515;
+}
+
+.reserva > p:not(.section-label) {
+    color: #aaaaaa;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+.btn-reserva-grande {
+    min-height: 58px;
+
+    padding: 0 40px;
+
+    border: 0;
+
+    background: #d89543;
+
+    color: #080808;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn-reserva-grande:hover {
+    background: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    width: 100%;
+
+    padding:
+        80px
+        8%
+        35px;
+
+    background: #050505;
+
+    color: #777777;
+
+    text-align: center;
+}
+
+footer h3 {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+footer p {
+    line-height: 1.7;
+
+    margin-bottom: 7px;
+}
+
+.redes {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    margin: 30px 0;
+}
+
+.redes a {
+    color: #d89543;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+.redes a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    margin-top: 45px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #1d1d1d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .navbar {
+        gap: 22px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+
+
+/* =========================================================
+   IPHONE Y ANDROID
+========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        scroll-padding-top: 78px;
+    }
+
+
+    /* -------------------------
+       HEADER MÓVIL
+    ------------------------- */
+
+    .header {
+        min-height: calc(72px + env(safe-area-inset-top));
+
+        padding-top: env(safe-area-inset-top);
+
+        padding-left: 18px;
+        padding-right: 18px;
+
+        background: rgba(5, 5, 5, 0.94);
+    }
+
+    .logo {
+        font-size: 14px;
+
+        letter-spacing: 2px;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .btn-reservar {
+        min-height: 42px;
+
+        padding: 0 13px;
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* -------------------------
+       HERO MÓVIL
+    ------------------------- */
+
+    .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+
+        padding:
+            calc(105px + env(safe-area-inset-top))
+            22px
+            70px;
+
+        align-items: center;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.63) 0%,
+                rgba(0, 0, 0, 0.65) 45%,
+                rgba(0, 0, 0, 0.94) 100%
+            ),
+            url("img/portada.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+    }
+
+    .hero::after {
+        height: 130px;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        max-width: none;
+    }
+
+    .hero-subtitle {
+        max-width: 340px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+        line-height: 1.7;
+
+        margin-bottom: 22px;
+    }
+
+    .hero h1 {
+        font-size: clamp(56px, 18vw, 82px);
+
+        line-height: 0.84;
+
+        letter-spacing: -3px;
+
+        margin-bottom: 28px;
+
+        word-break: normal;
+    }
+
+    .hero-text {
+        max-width: 340px;
+
+        color: #d7d7d7;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+
+        margin-bottom: 30px;
+    }
+
+    .hero-button {
+        min-height: 52px;
+
+        padding: 0 26px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    /* -------------------------
+       TEXTOS
+    ------------------------- */
+
+    section h2 {
+        font-size: clamp(39px, 11vw, 56px);
+
+        line-height: 1.05;
+
+        margin-bottom: 25px;
+    }
+
+    .section-label {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+        line-height: 1.6;
+    }
+
+
+    /* -------------------------
+       NOSOTROS
+    ------------------------- */
+
+    .nosotros {
+        min-height: auto;
+
+        padding: 90px 22px;
+    }
+
+    .section-content p:last-child {
+        max-width: 500px;
+
+        font-size: 15px;
+
+        line-height: 1.85;
+    }
+
+
+    /* -------------------------
+       GALERÍA
+    ------------------------- */
+
+    .galeria {
+        padding: 90px 16px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-top: 40px;
+    }
+
+    .foto {
+        min-height: 300px;
+    }
+
+
+    /* -------------------------
+       HORARIO
+    ------------------------- */
+
+    .horario {
+        padding: 100px 22px;
+    }
+
+    .horario-grande {
+        font-size: clamp(28px, 9vw, 38px);
+
+        line-height: 1.35;
+    }
+
+
+    /* -------------------------
+       UBICACIÓN
+    ------------------------- */
+
+    .ubicacion {
+        min-height: auto;
+
+        padding: 95px 22px;
+    }
+
+    .ubicacion > p:not(.section-label) {
+        font-size: 15px;
+
+        margin-bottom: 30px;
+    }
+
+    .btn-mapa {
+        width: 100%;
+
+        max-width: 340px;
+
+        min-height: 54px;
+
+        padding: 0 20px;
+
+        font-size: 10px;
+    }
+
+
+    /* -------------------------
+       RESERVACIÓN
+    ------------------------- */
+
+    .reserva {
+        min-height: auto;
+
+        padding: 95px 22px;
+    }
+
+    .reserva > p:not(.section-label) {
+        font-size: 15px;
+
+        margin-bottom: 30px;
+    }
+
+    .btn-reserva-grande {
+        width: 100%;
+
+        max-width: 340px;
+
+        min-height: 56px;
+
+        padding: 0 20px;
+
+        font-size: 10px;
+    }
+
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+        padding:
+            70px
+            22px
+            calc(30px + env(safe-area-inset-bottom));
+    }
+
+    footer h3 {
+        font-size: 24px;
+
+        letter-spacing: 3px;
+    }
+
+    footer p {
+        font-size: 13px;
+    }
+
+    .redes {
+        gap: 22px;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   iPhone SE y Android pequeños
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .logo {
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .btn-reservar {
+        min-height: 39px;
+
+        padding: 0 10px;
+
+        font-size: 8px;
+    }
+
+    .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero-subtitle {
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+    }
+
+    .hero-button {
+        min-height: 50px;
+
+        padding: 0 22px;
+    }
+
+    .nosotros,
+    .horario,
+    .ubicacion,
+    .reserva {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY GRANDES
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .hero-content {
+        max-width: 900px;
+    }
+
+    .hero {
+        padding-left: 8%;
+    }
+}

@@ -825,67 +825,124 @@ section h2 {
 .ubicacion {
     width: 100%;
 
-    min-height: 550px;
+    min-height: 650px;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
 
-    flex-direction: column;
+    padding: 120px 8%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216, 149, 67, 0.08),
+            transparent 55%
+        ),
+        #0c0c0c;
+}
+
+
+.ubicacion-contenido {
+    width: 100%;
+    max-width: 800px;
+}
+
+
+.ubicacion h2 span {
+    color: #d89543;
+}
+
+
+.direccion {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+
+.horario-ubicacion {
+    color: #888888;
+
+    font-size: 15px;
+
+    margin-bottom: 40px;
+}
+
+
+.ubicacion-botones {
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 110px 8%;
-
-    text-align: center;
-
-    background: #0c0c0c;
+    gap: 15px;
 }
 
-.ubicacion > p:not(.section-label) {
-    color: #aaaaaa;
 
-    font-size: 18px;
+/* BOTÓN MAPA */
 
-    line-height: 1.7;
+.btn-mapa,
+.btn-telefono {
+    min-width: 180px;
+    min-height: 56px;
 
-    margin-bottom: 35px;
-}
-
-.btn-mapa {
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 54px;
+    padding: 0 28px;
 
-    padding: 0 32px;
-
-    border: 1px solid #d89543;
-
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 11px;
+    font-weight: 900;
 
     letter-spacing: 2px;
 
     text-transform: uppercase;
 
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
-.btn-mapa:hover {
+
+.btn-mapa {
     background: #d89543;
 
-    color: #000000;
+    border: 1px solid #d89543;
+
+    color: #080808;
+}
+
+
+.btn-mapa:hover {
+    background: #ffffff;
+
+    border-color: #ffffff;
 
     transform: translateY(-2px);
 }
 
+
+.btn-telefono {
+    border: 1px solid #444444;
+
+    color: #ffffff;
+}
+
+
+.btn-telefono:hover {
+    border-color: #d89543;
+
+    color: #d89543;
+
+    transform: translateY(-2px);
+}
 
 /* =========================================================
    RESERVACIÓN
@@ -2459,32 +2516,52 @@ body {
 
 
     /* -------------------------
-       UBICACIÓN
-    ------------------------- */
+   UBICACIÓN MÓVIL
+------------------------- */
 
-    .ubicacion {
-        min-height: auto;
+.ubicacion {
+    min-height: auto;
 
-        padding: 95px 22px;
-    }
+    padding: 100px 22px;
+}
 
-    .ubicacion > p:not(.section-label) {
-        font-size: 15px;
 
-        margin-bottom: 30px;
-    }
+.ubicacion-contenido {
+    max-width: 100%;
+}
 
-    .btn-mapa {
-        width: 100%;
 
-        max-width: 340px;
+.direccion {
+    font-size: 22px;
+}
 
-        min-height: 54px;
 
-        padding: 0 20px;
+.horario-ubicacion {
+    font-size: 14px;
 
-        font-size: 10px;
-    }
+    line-height: 1.6;
+
+    margin-bottom: 32px;
+}
+
+
+.ubicacion-botones {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.btn-mapa,
+.btn-telefono {
+    width: 100%;
+
+    max-width: 340px;
+
+    min-height: 56px;
+}
 
 
     /* -------------------------

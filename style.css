@@ -2039,6 +2039,22 @@ body.modal-abierto {
     font-size: 8px;
 }
 
+
+/* -------------------------
+   PROFUNDIDAD DE FOTOS
+------------------------- */
+
+.experiencia-foto img,
+.historia-jardin-imagen img,
+.menu-proximamente-imagen img,
+.menu-destacado-imagen img {
+    height: 112%;
+
+    object-fit: cover;
+
+    will-change: transform;
+}
+
     /* -------------------------
        HEADER MÓVIL
     ------------------------- */

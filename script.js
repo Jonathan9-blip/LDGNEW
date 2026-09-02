@@ -488,3 +488,59 @@ window.addEventListener(
 actualizarHeader();
 
 });
+
+// =========================================================
+// EFECTO SUAVE DE PROFUNDIDAD EN IMÁGENES
+// =========================================================
+
+const imagenesParallax = document.querySelectorAll(
+    ".experiencia-foto img, .historia-jardin-imagen img, .menu-proximamente-imagen img, .menu-destacado-imagen img"
+);
+
+function actualizarParallax() {
+
+    if (window.innerWidth > 768) {
+        return;
+    }
+
+    imagenesParallax.forEach((imagen) => {
+
+        const contenedor = imagen.parentElement;
+
+        const rect = contenedor.getBoundingClientRect();
+
+        const centroPantalla = window.innerHeight / 2;
+
+        const centroElemento =
+            rect.top + rect.height / 2;
+
+        const distancia =
+            centroElemento - centroPantalla;
+
+        const movimiento =
+            distancia * -0.025;
+
+        imagen.style.transform =
+            `scale(1.06) translateY(${movimiento}px)`;
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    actualizarParallax,
+    {
+        passive: true
+    }
+);
+
+
+window.addEventListener(
+    "resize",
+    actualizarParallax
+);
+
+
+actualizarParallax();

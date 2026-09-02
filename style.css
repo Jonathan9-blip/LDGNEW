@@ -2369,69 +2369,121 @@ body.modal-abierto {
 }
 
     /* -------------------------
-   NAVEGACIÓN INFERIOR
+   NAVEGACIÓN INFERIOR MÓVIL
 ------------------------- */
 
 .mobile-nav {
     position: fixed;
 
-    left: 0;
-    bottom: 0;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
 
     z-index: 2000;
 
-    width: 100%;
+    width: auto;
 
-    min-height: 64px;
+    min-height: 66px;
 
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
-    padding-bottom: env(safe-area-inset-bottom);
+    background: rgba(10, 10, 10, 0.94);
 
-    background: rgba(5, 5, 5, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border-radius: 18px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+
+    overflow: hidden;
 }
 
+
 .mobile-nav a {
-    min-height: 64px;
+    position: relative;
+
+    min-height: 66px;
 
     display: flex;
+    flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
-    color: #888888;
+    gap: 5px;
 
-    font-size: 10px;
+    color: #777777;
+
+    font-size: 9px;
     font-weight: 800;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
 
     text-transform: uppercase;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease;
 }
+
+
+.mobile-nav a svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 
 .mobile-nav a.active {
     color: #d89543;
+
+    background:
+        rgba(216, 149, 67, 0.08);
 }
+
+
+.mobile-nav a.active::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 28px;
+    height: 2px;
+
+    background: #d89543;
+
+    border-radius: 10px;
+}
+
 
 .mobile-nav a:active {
-    color: #ffffff;
+    background:
+        rgba(255, 255, 255, 0.05);
 }
 
 
-/* Evita que la barra tape el final de la página */
+/* espacio inferior para que no tape contenido */
 
 body {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom:
+        calc(95px + env(safe-area-inset-bottom));
 }
+
 
     /* -------------------------
    EXPERIENCIA MÓVIL

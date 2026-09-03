@@ -444,8 +444,9 @@ Comentario: ${comentario}`;
         "_blank"
     );
 
+});
 
-    // =========================================================
+// =========================================================
 // HEADER COMPACTO AL HACER SCROLL
 // =========================================================
 
@@ -486,8 +487,6 @@ window.addEventListener(
 
 
 actualizarHeader();
-
-});
 
 // =========================================================
 // EFECTO SUAVE DE PROFUNDIDAD EN IMÁGENES
@@ -613,7 +612,7 @@ window.addEventListener(
 );
 
 // =========================================================
-// CARRUSEL HORIZONTAL AUTOMÁTICO
+// GALERÍA DESLIZABLE AUTOMÁTICA
 // =========================================================
 
 const sliderTrack = document.getElementById("sliderTrack");
@@ -622,78 +621,198 @@ const nextGaleria = document.getElementById("nextGaleria");
 
 if (sliderTrack && prevGaleria && nextGaleria) {
 
+    let autoSlide = null;
+
     function obtenerAnchoDesplazamiento() {
-        const primerItem = sliderTrack.querySelector(".slider-item");
 
-        if (!primerItem) return 300;
+        const primerItem =
+            sliderTrack.querySelector(".slider-item");
 
-        const estilos = window.getComputedStyle(sliderTrack);
-        const gap = parseInt(estilos.columnGap || estilos.gap || 0, 10);
+        if (!primerItem) {
+            return 300;
+        }
+
+        const estilos =
+            window.getComputedStyle(sliderTrack);
+
+        const gap =
+            parseFloat(estilos.gap) || 0;
 
         return primerItem.offsetWidth + gap;
     }
 
+
     function moverSiguiente() {
-        const desplazamiento = obtenerAnchoDesplazamiento();
+
+        const desplazamiento =
+            obtenerAnchoDesplazamiento();
 
         const maxScroll =
-            sliderTrack.scrollWidth - sliderTrack.clientWidth;
+            sliderTrack.scrollWidth -
+            sliderTrack.clientWidth;
 
-        if (sliderTrack.scrollLeft + desplazamiento >= maxScroll - 5) {
+        const llegoAlFinal =
+            sliderTrack.scrollLeft >=
+            maxScroll - desplazamiento / 2;
+
+        if (llegoAlFinal) {
+
             sliderTrack.scrollTo({
                 left: 0,
                 behavior: "smooth"
             });
+
         } else {
+
             sliderTrack.scrollBy({
                 left: desplazamiento,
                 behavior: "smooth"
             });
+
         }
     }
 
+
     function moverAnterior() {
-        const desplazamiento = obtenerAnchoDesplazamiento();
+
+        const desplazamiento =
+            obtenerAnchoDesplazamiento();
+
+        const maxScroll =
+            sliderTrack.scrollWidth -
+            sliderTrack.clientWidth;
 
         if (sliderTrack.scrollLeft <= 5) {
+
             sliderTrack.scrollTo({
-                left: sliderTrack.scrollWidth,
+                left: maxScroll,
                 behavior: "smooth"
             });
+
         } else {
+
             sliderTrack.scrollBy({
                 left: -desplazamiento,
                 behavior: "smooth"
             });
+
         }
     }
 
-    nextGaleria.addEventListener("click", moverSiguiente);
-    prevGaleria.addEventListener("click", moverAnterior);
 
-    let autoSlide = setInterval(moverSiguiente, 3500);
+    function detenerAutoSlide() {
 
-    function reiniciarAutoSlide() {
-        clearInterval(autoSlide);
-        autoSlide = setInterval(moverSiguiente, 3500);
+        if (autoSlide) {
+            clearInterval(autoSlide);
+            autoSlide = null;
+        }
     }
 
-    nextGaleria.addEventListener("click", reiniciarAutoSlide);
-    prevGaleria.addEventListener("click", reiniciarAutoSlide);
 
-    sliderTrack.addEventListener("touchstart", () => {
-        clearInterval(autoSlide);
-    });
+    function iniciarAutoSlide() {
 
-    sliderTrack.addEventListener("touchend", () => {
-        reiniciarAutoSlide();
-    });
+        detenerAutoSlide();
 
-    sliderTrack.addEventListener("mouseenter", () => {
-        clearInterval(autoSlide);
-    });
+        /*
+           Si el usuario tiene activado "reducir movimiento",
+           no desplazamos automáticamente el carrusel.
+        */
+        if (
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+            return;
+        }
 
-    sliderTrack.addEventListener("mouseleave", () => {
-        reiniciarAutoSlide();
-    });
+        autoSlide =
+            setInterval(
+                moverSiguiente,
+                4000
+            );
+    }
+
+
+    nextGaleria.addEventListener(
+        "click",
+        () => {
+
+            moverSiguiente();
+            iniciarAutoSlide();
+
+        }
+    );
+
+
+    prevGaleria.addEventListener(
+        "click",
+        () => {
+
+            moverAnterior();
+            iniciarAutoSlide();
+
+        }
+    );
+
+
+    /*
+       En teléfono se puede arrastrar con el dedo.
+       Pausamos el automático mientras el usuario toca.
+    */
+
+    sliderTrack.addEventListener(
+        "touchstart",
+        detenerAutoSlide,
+        {
+            passive: true
+        }
+    );
+
+
+    sliderTrack.addEventListener(
+        "touchend",
+        iniciarAutoSlide,
+        {
+            passive: true
+        }
+    );
+
+
+    /*
+       En computadora se pausa al pasar el mouse.
+    */
+
+    sliderTrack.addEventListener(
+        "mouseenter",
+        detenerAutoSlide
+    );
+
+
+    sliderTrack.addEventListener(
+        "mouseleave",
+        iniciarAutoSlide
+    );
+
+
+    /*
+       No seguimos moviendo fotos si la pestaña
+       del navegador está en segundo plano.
+    */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            if (document.hidden) {
+                detenerAutoSlide();
+            } else {
+                iniciarAutoSlide();
+            }
+
+        }
+    );
+
+
+    iniciarAutoSlide();
 }
+

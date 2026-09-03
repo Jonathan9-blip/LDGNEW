@@ -253,7 +253,7 @@ document.body.appendChild(modalReserva);
 // =========================================================
 
 const botonesReserva = document.querySelectorAll(
-    ".btn-reservar, .hero-button, #abrirReserva"
+    ".btn-reservar, .hero-button, .btn-reserva-grande, #abrirReserva"
 );
 
 const cerrarReserva = modalReserva.querySelector(".cerrar-reserva");
@@ -544,3 +544,70 @@ window.addEventListener(
 
 
 actualizarParallax();
+
+// =========================================================
+// OCULTAR NAV MÓVIL AL BAJAR
+// MOSTRARLA AL SUBIR
+// =========================================================
+
+const navegacionMovil = document.querySelector(".mobile-nav");
+
+let scrollAnterior = window.scrollY;
+
+
+function controlarNavegacionMovil() {
+
+    if (!navegacionMovil) {
+        return;
+    }
+
+
+    // Solo en teléfono
+    if (window.innerWidth > 768) {
+
+        navegacionMovil.classList.remove("nav-oculta");
+
+        return;
+    }
+
+
+    const scrollActual = window.scrollY;
+
+    const diferencia =
+        scrollActual - scrollAnterior;
+
+
+    // Cerca del principio siempre visible
+    if (scrollActual < 100) {
+
+        navegacionMovil.classList.remove("nav-oculta");
+
+    }
+
+    // Bajando
+    else if (diferencia > 6) {
+
+        navegacionMovil.classList.add("nav-oculta");
+
+    }
+
+    // Subiendo
+    else if (diferencia < -6) {
+
+        navegacionMovil.classList.remove("nav-oculta");
+
+    }
+
+
+    scrollAnterior = scrollActual;
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    controlarNavegacionMovil,
+    {
+        passive: true
+    }
+);

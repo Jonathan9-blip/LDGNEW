@@ -1977,6 +1977,347 @@ body.modal-abierto {
 }
 
 /* =========================================================
+   MENÚ REAL
+========================================================= */
+
+.menu-real {
+    width: 100%;
+
+    background: #080808;
+}
+
+
+/* CATEGORÍAS */
+
+.menu-categorias {
+    position: sticky;
+
+    top: 70px;
+
+    z-index: 500;
+
+    width: 100%;
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 15px 6%;
+
+    background: rgba(5, 5, 5, 0.96);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    scrollbar-width: none;
+}
+
+.menu-categorias::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-categorias a {
+    flex: 0 0 auto;
+
+    padding: 11px 17px;
+
+    border: 1px solid #292929;
+
+    color: #999;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.menu-categorias a:hover {
+    color: #080808;
+
+    background: #d89543;
+
+    border-color: #d89543;
+}
+
+
+/* SECCIONES */
+
+.menu-seccion {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 130px 7%;
+
+    scroll-margin-top: 140px;
+
+    border-bottom: 1px solid #1b1b1b;
+}
+
+
+.menu-seccion-titulo {
+    margin-bottom: 55px;
+}
+
+
+.menu-seccion-titulo > span {
+    display: block;
+
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 18px;
+}
+
+
+.menu-seccion-titulo h2 {
+    margin-bottom: 0;
+}
+
+
+/* LISTA */
+
+.menu-lista {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0 60px;
+}
+
+
+.menu-producto {
+    min-height: 95px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #242424;
+}
+
+
+.menu-producto h3 {
+    color: #f2eee7;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+}
+
+
+.menu-producto p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-top: 7px;
+}
+
+
+.menu-producto-destacado h3 {
+    color: #d89543;
+}
+
+
+/* CORTES ESPECIALES */
+
+.menu-destacados {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 60px;
+}
+
+
+.corte-destacado {
+    min-height: 290px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,149,67,0.12),
+            rgba(255,255,255,0.015)
+        ),
+        #101010;
+
+    border: 1px solid #252525;
+}
+
+
+.corte-destacado > span {
+    color: #d89543;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+
+.corte-destacado h3 {
+    color: #fff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+
+.corte-destacado p {
+    max-width: 350px;
+
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* TÉRMINOS */
+
+.terminos-carne {
+    margin-top: 60px;
+
+    padding: 35px;
+
+    border: 1px solid #252525;
+}
+
+
+.terminos-carne > div {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.terminos-carne > div span {
+    padding: 12px 18px;
+
+    border: 1px solid #333;
+
+    color: #ccc;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* SUBGRUPOS */
+
+.menu-subgrupo {
+    margin-top: 70px;
+}
+
+
+.menu-subgrupo > h3 {
+    color: #d89543;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 36px;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+}
+
+
+/* NOTA */
+
+.menu-nota {
+    color: #777;
+
+    font-size: 12px;
+
+    margin-top: 30px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* RESERVACIÓN */
+
+.menu-reservar {
+    min-height: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 7%;
+
+    background: #111;
+}
+
+
+.menu-reservar h2 span {
+    color: #d89543;
+}
+
+
+.menu-reservar > p:not(.section-label) {
+    color: #888;
+
+    margin-bottom: 35px;
+}
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -2008,6 +2349,144 @@ body.modal-abierto {
         scroll-padding-top: 78px;
     }
 
+
+    /* -------------------------
+   MENÚ REAL MÓVIL
+------------------------- */
+
+.menu-categorias {
+    top: calc(60px + env(safe-area-inset-top));
+
+    padding: 12px 14px;
+}
+
+
+.menu-categorias a {
+    padding: 10px 14px;
+
+    font-size: 9px;
+}
+
+
+.menu-seccion {
+    padding: 85px 20px;
+
+    scroll-margin-top: 125px;
+}
+
+
+.menu-seccion-titulo {
+    margin-bottom: 35px;
+}
+
+
+.menu-lista {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+}
+
+
+.menu-producto {
+    min-height: auto;
+
+    padding: 20px 3px;
+}
+
+
+.menu-producto h3 {
+    font-size: 23px;
+}
+
+
+.menu-producto p {
+    font-size: 12px;
+}
+
+
+/* CORTES DESTACADOS */
+
+.menu-destacados {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 45px;
+}
+
+
+.corte-destacado {
+    min-height: 230px;
+
+    padding: 28px;
+}
+
+
+.corte-destacado h3 {
+    font-size: 39px;
+}
+
+
+/* TÉRMINOS */
+
+.terminos-carne {
+    margin-top: 45px;
+
+    padding: 25px 20px;
+}
+
+
+.terminos-carne > div {
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.terminos-carne > div span {
+    width: 100%;
+
+    text-align: center;
+}
+
+
+/* SUBGRUPOS */
+
+.menu-subgrupo {
+    margin-top: 55px;
+}
+
+
+.menu-subgrupo > h3 {
+    font-size: 31px;
+}
+
+
+/* FINAL */
+
+.menu-reservar {
+    min-height: 520px;
+
+    padding: 90px 22px;
+}
+
+    /* -------------------------
+   OCULTAR / MOSTRAR NAV MÓVIL
+------------------------- */
+
+.mobile-nav {
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.mobile-nav.nav-oculta {
+    transform: translateY(
+        calc(100% + 25px + env(safe-area-inset-bottom))
+    );
+
+    opacity: 0;
+}
 
 
     /* -------------------------

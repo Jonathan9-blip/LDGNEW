@@ -611,3 +611,89 @@ window.addEventListener(
         passive: true
     }
 );
+
+// =========================================================
+// CARRUSEL HORIZONTAL AUTOMÁTICO
+// =========================================================
+
+const sliderTrack = document.getElementById("sliderTrack");
+const prevGaleria = document.getElementById("prevGaleria");
+const nextGaleria = document.getElementById("nextGaleria");
+
+if (sliderTrack && prevGaleria && nextGaleria) {
+
+    function obtenerAnchoDesplazamiento() {
+        const primerItem = sliderTrack.querySelector(".slider-item");
+
+        if (!primerItem) return 300;
+
+        const estilos = window.getComputedStyle(sliderTrack);
+        const gap = parseInt(estilos.columnGap || estilos.gap || 0, 10);
+
+        return primerItem.offsetWidth + gap;
+    }
+
+    function moverSiguiente() {
+        const desplazamiento = obtenerAnchoDesplazamiento();
+
+        const maxScroll =
+            sliderTrack.scrollWidth - sliderTrack.clientWidth;
+
+        if (sliderTrack.scrollLeft + desplazamiento >= maxScroll - 5) {
+            sliderTrack.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+        } else {
+            sliderTrack.scrollBy({
+                left: desplazamiento,
+                behavior: "smooth"
+            });
+        }
+    }
+
+    function moverAnterior() {
+        const desplazamiento = obtenerAnchoDesplazamiento();
+
+        if (sliderTrack.scrollLeft <= 5) {
+            sliderTrack.scrollTo({
+                left: sliderTrack.scrollWidth,
+                behavior: "smooth"
+            });
+        } else {
+            sliderTrack.scrollBy({
+                left: -desplazamiento,
+                behavior: "smooth"
+            });
+        }
+    }
+
+    nextGaleria.addEventListener("click", moverSiguiente);
+    prevGaleria.addEventListener("click", moverAnterior);
+
+    let autoSlide = setInterval(moverSiguiente, 3500);
+
+    function reiniciarAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(moverSiguiente, 3500);
+    }
+
+    nextGaleria.addEventListener("click", reiniciarAutoSlide);
+    prevGaleria.addEventListener("click", reiniciarAutoSlide);
+
+    sliderTrack.addEventListener("touchstart", () => {
+        clearInterval(autoSlide);
+    });
+
+    sliderTrack.addEventListener("touchend", () => {
+        reiniciarAutoSlide();
+    });
+
+    sliderTrack.addEventListener("mouseenter", () => {
+        clearInterval(autoSlide);
+    });
+
+    sliderTrack.addEventListener("mouseleave", () => {
+        reiniciarAutoSlide();
+    });
+}
